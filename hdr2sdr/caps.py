@@ -127,8 +127,10 @@ def detect(ffmpeg_override: str = "", quick: bool = False) -> Caps:
         if not (c.vaapi_h264 or c.vaapi_hevc):
             break
         enc = "h264_vaapi" if c.vaapi_h264 else "hevc_vaapi"
+        # Real encoders reject tiny frames (e.g. AMD: width >= 96), so probe
+        # with a small but realistic size.
         rc, _, err = _run([c.ffmpeg, "-v", "error", "-vaapi_device", dev,
-                           "-f", "lavfi", "-i", "color=c=gray:s=64x64:d=0.1",
+                           "-f", "lavfi", "-i", "color=c=gray:s=256x144:d=0.1",
                            "-vf", "format=nv12,hwupload", "-c:v", enc,
                            "-frames:v", "1", "-f", "null", "-"], timeout=40)
         if rc == 0:

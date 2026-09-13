@@ -45,8 +45,14 @@ if command -v apt-get >/dev/null 2>&1; then
   PKGS="ffmpeg python3 python3-venv python3-pip libxcb-cursor0 libegl1 libgl1"
   # GPU stack for AMD/Intel: VAAPI (hardware encode) + Vulkan (libplacebo tone mapping)
   PKGS="$PKGS mesa-va-drivers libva-drm2 libva2 vainfo mesa-vulkan-drivers vulkan-tools"
+  # A broken third-party PPA makes "apt-get update" exit non-zero; that must not
+  # skip the install step, so the two commands are deliberately not chained.
+  sudo apt-get update -qq || warn "apt-get update reported errors (usually an unrelated broken PPA); trying to install anyway"
   # shellcheck disable=SC2086
-  sudo apt-get update -qq && sudo apt-get install -y -qq $PKGS || warn "some packages failed to install (continuing)"
+  sudo apt-get install -y -qq $PKGS || warn "some packages failed to install (continuing)"
+  if ! dpkg -s libxcb-cursor0 >/dev/null 2>&1; then
+    warn "libxcb-cursor0 is missing: the GUI will not start until you run: sudo apt-get install libxcb-cursor0"
+  fi
 else
   warn "apt-get not found: make sure ffmpeg, python3 (>=3.10) and python3-venv are installed"
 fi
