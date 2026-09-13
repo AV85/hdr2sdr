@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=HDR2SDR
+Name[ru]=HDR2SDR — конвертер HDR видео
+Comment=Convert HDR10+/HLG phone videos to vivid SDR for video editing
+Comment[ru]=Конвертация HDR10+/HLG видео с телефона в яркое SDR для монтажа
+Comment[de]=HDR10+/HLG-Handyvideos in lebendiges SDR für den Videoschnitt konvertieren
+Comment[es]=Convierte vídeos HDR10+/HLG del móvil a SDR con colores vivos para la edición
+Comment[fr]=Convertit les vidéos HDR10+/HLG du téléphone en SDR aux couleurs vives pour le montage
+Exec=@EXEC@ %F
+Icon=@ICON@
+Terminal=false
+Categories=AudioVideo;Video;
+MimeType=video/mp4;video/quicktime;video/x-matroska;
+Keywords=HDR;SDR;video;convert;ffmpeg;samsung;

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5f3b"/><stop offset="0.5" stop-color="#ffcf2e"/><stop offset="1" stop-color="#2ec4ff"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="22" fill="#1f2430"/>
+  <rect x="20" y="30" width="88" height="56" rx="8" fill="url(#g)"/>
+  <rect x="20" y="30" width="44" height="56" rx="8" fill="#9aa0ad" opacity="0.85"/>
+  <path d="M54 58 L74 58 M68 51 L75 58 L68 65" stroke="#1f2430" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="106" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff">HDR→SDR</text>
+</svg>

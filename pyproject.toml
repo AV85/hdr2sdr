@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hdr2sdr"
+version = "1.0.0"
+description = "Convert HDR10+/HLG phone videos (Samsung S23 etc.) to vivid SDR for video editors"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = ["PySide6>=6.6"]
+
+[project.scripts]
+hdr2sdr = "hdr2sdr.__main__:main"
+hdr2sdr-cli = "hdr2sdr.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["hdr2sdr*"]
+
+[tool.setuptools.package-data]
+hdr2sdr = ["locales/*.json"]
